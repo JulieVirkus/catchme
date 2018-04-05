@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Catch Me If You Can Map Story</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #map {
+        position: fixed;
+        width: 50%;
+    }
+
+    #features {
+        width: 50%;
+        margin-left: 50%;
+        font-family: sans-serif;
+        color: #563332;
+        overflow-y: scroll;
+        background-color: #fafafa;
+    }
+    
+    h3 {
+        color: #00618d;
+    }
+
+    section {
+        padding: 25px 50px;
+        line-height: 25px;
+        border-bottom: 1px solid #668c8e;
+        opacity: 0.25;
+        font-size: 13px;
+    }
+
+    section.active {
+        opacity: 1;
+    }
+
+    section:last-child {
+        border-bottom: none;
+        margin-bottom: 200px;
+    }
+</style>
+
+<body>
+
+    <div id='map'></div>
+    <div id='features'>
+        <section id='intro' class='active'>
+            <h3>Intro</h3>
+            <ul>
+                <li>A pre-credits scene shows an episode of the popular game show 'To Tell the Truth' where three contestants appear claiming to the panelests to be the legendary Frank Abagnale Jr.</li>
+            </ul>
+        </section>
+        <section id='ch1'>
+            <h3>1969</h3>
+            <p>
+                <ul>
+                    <li>FBI agent Carl Hanratty Jr. arriving at a French prison to meet the flu-stricken Frank Abagnale Jr.</li>
+                </ul>
+        </section>
+        <section id='ch2'>
+            <h3>1963</h3>
+            <ul>
+                <li>1963: 16-year-old Frank Abagnale Jr. lives in New Rochelle, New York with his father Frank Abagnale, Sr. and French mother Paula.</li>
+                <li>1963: Chase Manhattan Bank, Frank Sr. is denied a loan due to a series of IRS tax frauds. The family is forced to move from their grand home to a small apartment, with tension building within the family.</li>
+                <li>1963: Frank soon realizes that his mother is having an adulterous affair with his father's friend Jack.</li>
+                <li>1963: Frank poses as a substitute teacher in his French class for a short time.</li>
+                <li>1963: Frank's mother and father file for divorce and ask Frank to choose who he will live with. Horrified, Frank runs away from home, using checks that his father had given him.</li>
+                <li>1963: Frank runs out of money, he begins to use confidence scams. Frank's cons grow ever bolder and he even impersonates an airline pilot.</li>
+            </ul>
+        </section>
+        <section id='ch3'>
+            <h3>1964</h3>
+            <ul>
+                <li>Carl Hanratty, the nearly humorless but persistent FBI agent, begins to track down Frank in spite of his superiors not attaching much importance to the case. Tracking Frank to a hotel, Carl discovers to his surprise that he is still a resident there and breaks into his room to arrest him. Emerging from the bathroom and knowing only that Carl is from the FBI, Frank pretends to be Agent "Barry Allen" of the United States Secret Service and brazenly claims to have just caught the suspect himself. It is not until after Frank has escaped from the room that Carl realizes he has been fooled.</li>
+                <li>Frank invites his father to a fancy restaurant to find a way to reunite his divorced parents</li>
+                <li>Carl discovers that the name Barry Allen is from The Flash comic books and that Frank is actually a teenage minor, which explains why they have been unsuccessful in finding a record of him.</li>
+            </ul>
+        </section>
+        <section id='ch4'>
+            <h3>1965</h3>
+            <ul>
+                <li>Frank has changes from impersonating a pilot to impersonating a doctor in Georgia, while romancing Brenda Strong. He proposes marriage to her. The two travel to meet her parents in Louisiana. Frank soon joins Brenda's father as an assistant prosecutor after passing the Bar exam. Frank soon decides to marry Brenda, and decides to tell his father.</li>
+            </ul>
+        </section>
+        <section id='ch5'>
+            <h3>1966</h3>
+            <ul>
+                <li>Frank Sr., now working as a US Postal worker, informs his son that Frank's mother has remarried, devastating Frank. After Frank leaves his father for good, he calls Carl, wanting the chase to end in the wake of his wanting to settle down.</li>
+                <li>Carl's men look through wedding announcements to track Frank down. When Carl tracks him down and arrives at their engagement party to arrest him, Frank admits the truth to Brenda, shows her all his stolen money and asks her to run away with him. Although shocked, she accepts his offer and agrees to meet him two days later at the airport.</li>
+                <li>Realizing that Carl has convinced Brenda to turn against him. When Frank doesn't appear, Carl has his men stake out the airport, certain that Frank will attempt to show him up somehow, and try to escape by plane. Frank puts a new plan into effect, where he claims that he works for Pan Am, and is recruiting stewardesses to travel to Europe. The girls he chooses work as "eye candy", and Frank manages to walk right past Carl's men, distracting them with a decoy in the unloading zone of the airport.</li>
+            </ul>
+        </section>
+        <section id='ch6'>
+            <h3>1967</h3>
+            <ul>
+                <li>A year-and-a-half later, Carl angrily tells his boss that Frank has been forging checks all over the Eastern Hemisphere. He requests permission to track him down in Europe. When his boss denies him permission, Carl takes one of Frank's bogus checks to professional printers who suggest it can have been printed in only a handful of European countries. Remembering from an interview with Franks mother Paula that she was born in France, Carl travels to her birthplace of Montrichard.</li>
+                <li>Carl finds Frank on Christmas Eve, inside a massive printing factory. Carl tells Frank that the French police outside will kill him if he doesn't surrender quietly. Frank handcuffs himself and Carl takes him outside, where, seeing no police, he compliments Carl on his ability to fool him.</li>
+                <li>The French police arrive and escort Frank to prison. The French police take Frank away, with Carl promising to have Frank extradited back to the USA. After two years, Frank is released into Carl's custody.</li>
+            </ul>
+        </section>
+        <section id='ch7'>
+            <h3>1969</h3>
+            <ul>
+                <li>On Christmas Eve, on the plane extraditing Frank to the United States, Carl informs him that his father had died accidentally the previous year. Devastated, Frank escapes from the plane in incredible fashion, and tracks down where his mother lives. Here he finds his mother with her second husband, as well as a young girl who Frank realizes is his half-sister. Before he can even speak to his mother, however, a posse of police arrive in pursuit and Frank surrenders.</li>
+            </ul>
+        </section>
+        <section id='ch8'>
+            <h3>1970</h3>
+            <ul>
+                <li>Frank is tried, convicted, and given a 12-year prison sentence for check forgery, embezzlement, among many other charges, and sent to a maximum security Federal prison in Atlanta. During the next four years, Frank receives regular visits from Carl. During one of these visits, Frank easily deduces the identity of a forger by glancing at a check that Carl shows him.</li>
+            </ul>
+        </section>
+
+        <section id='ch9'>
+            <h3>1974</h3>
+            <ul>
+                <li>An impressed Carl arranges for Frank to be allowed to serve out the remainder of his sentence working for the check fraud department of the FBI under Carl's custody. Although Frank is out of prison, he is chained to his desk-job and misses the thrill of his old life and even attempts to pose as an airline pilot once again. Just as he tries to run again, Carl meets him at the airport. Carl allows him to go free, predicting that Frank will return to work on Monday since there is no one chasing him. Back in the office on Monday morning, Carl is nervous when Frank doesn't appear for work on time. He is afraid that he has run away and ruined both their lives. In the last minute Frank shows up.</li>
+            </ul>
+        </section>
+
+
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoianVsaWV2aXJrdXMiLCJhIjoiY2pmamN6MWdiNXhodzJ3cGs1Ym93d2E2ZCJ9.srDtySIwXAKus5OYHvDGBg';
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/julievirkus/cjfjs5kgpexsi2snuzrqu5usd',
+            center: [-73.957573, 40.735944],
+            zoom: 10,
+            bearing: 56,
+            pitch: 33
+        });
+
+        var chapters = {
+            'intro': {
+                bearing: 27,
+                center: [-73.957573, 40.735944],
+                zoom: 16,
+                pitch: 20
+            },
+            'ch1': {
+                duration: 7000,
+                center: [5.402624, 43.289708],
+                bearing: 150,
+                zoom: 15,
+                pitch: 0
+            },
+            'ch2': {
+                bearing: 90,
+                center: [-73.957573, 40.735944],
+                zoom: 17,
+                speed: 0.6,
+                pitch: 40
+            },
+            'ch3': {
+                bearing: 23,
+                center: [-80.156770, 25.770813],
+                zoom: 14
+            },
+            'ch4': {
+                bearing: -45,
+                center: [-84.347899, 33.750857],
+                zoom: 15.3,
+                pitch: 20,
+                speed: 0.5
+            }
+            'ch5': {
+                bearing: -45,
+                center: [-73.957573, 40.735944],
+                zoom: 15.3,
+                pitch: 20,
+                speed: 0.5
+            }
+            'ch6': {
+                bearing: -45,
+                center: [1.771888, 47.356759],
+                zoom: 15.3,
+                pitch: 20,
+                speed: 0.5
+            }
+            'ch7': {
+                bearing: -45,
+                center: [-73.957573, 40.735944],
+                zoom: 15.3,
+                pitch: 20,
+                speed: 0.5
+            }
+            'ch8': {
+                bearing: -45,
+                center: [-84.347899, 33.750857],
+                zoom: 15.3,
+                pitch: 20,
+                speed: 0.5
+            }
+            'ch9': {
+                bearing: -45,
+                center: [-73.957573, 40.735944],
+                zoom: 15.3,
+                pitch: 20,
+                speed: 0.5
+            }
+        };
+
+
+        window.onscroll = function() {
+            var chapterNames = Object.keys(chapters);
+            for (var i = 0; i < chapterNames.length; i++) {
+                var chapterName = chapterNames[i];
+                if (isElementOnScreen(chapterName)) {
+                    setActiveChapter(chapterName);
+                    break;
+                }
+            }
+        };
+
+        var activeChapterName = 'intro';
+
+        function setActiveChapter(chapterName) {
+            if (chapterName === activeChapterName) return;
+
+            map.flyTo(chapters[chapterName]);
+
+            document.getElementById(chapterName).setAttribute('class', 'active');
+            document.getElementById(activeChapterName).setAttribute('class', '');
+
+            activeChapterName = chapterName;
+        }
+
+        function isElementOnScreen(id) {
+            var element = document.getElementById(id);
+            var bounds = element.getBoundingClientRect();
+            return bounds.top < window.innerHeight && bounds.bottom > 0;
+        }
+    </script>
+
+</body>
+
+</html>
